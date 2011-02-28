@@ -1,0 +1,3 @@
+<st:compress xmlns:st="jelly:stapler">
+	<st:contentType value="text/xml;charset=UTF-8"/>${it.getContent()}
+</st:compress>

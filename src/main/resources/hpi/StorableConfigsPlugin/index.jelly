@@ -1,0 +1,57 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+		 xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+	<l:layout title="Storable configs">
+	<l:header/>
+  		<l:side-panel>
+    		<l:tasks>
+      			<l:task icon="images/24x24/up.gif" href="${rootURL}/" title="${%Back to Hudson}"/>
+      			<l:task icon="images/24x24/up.gif" href="${rootURL}/job/${it.getFullName()}" title="${%Back to Job}"/>
+    		</l:tasks>
+  		</l:side-panel>
+    	<l:main-panel>
+			<div align="left">Save current configuration</div>
+			<f:form method="post" action="saveSettings" name="saveSettings">
+				<f:entry title="${%Filename}" help="/plugin/storable-configs-plugin/help/help-filename.html">
+					<f:textbox name="filename"/>
+				</f:entry>
+				<f:entry>
+                	<f:submit value="Save settings"/>
+                </f:entry>
+            </f:form>
+            
+            <br/>
+            
+            <div align="left">Load configuration</div>
+            <j:choose>
+          		<j:when test="${it.getConfigs().size() == 0}">
+              		No configurations available
+          		</j:when>
+          		<j:otherwise>
+          			<f:form method="post" action="changeSettings" name="changeSettings">
+          				<table width="100%">
+          					<tr>
+          						<td align="left">Name</td>
+          						<td align="left">View file</td>
+          						<td align="left">Select file</td>
+          					</tr>
+          					<j:forEach var="config" items="${it.getConfigs()}">
+          						<tr>
+          							<td>${config}</td>
+          							<td>
+          								<a href="viewFile?file=${config}">
+          									${%View}
+                          				</a>
+                          			</td>
+                          			<td><f:radio name="group" value="${config}"/></td>
+          						</tr>
+                  			</j:forEach>
+                  		</table>
+                		<div align="left">
+                			<f:submit value="Change settings"/>
+            			</div>
+            		</f:form>		
+          		</j:otherwise>
+        	</j:choose>
+    	</l:main-panel>
+	</l:layout>
+</j:jelly>
