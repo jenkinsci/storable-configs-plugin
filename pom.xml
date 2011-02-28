@@ -8,7 +8,7 @@
   </parent>
 
   <artifactId>storable-configs-plugin</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <name>Storable Configs plugin</name>
   <description>This plugin allows you to save and load set of job parameters.</description>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Storable+Configs+Plugin</url>
@@ -41,8 +41,9 @@
   </build>
   
   <scm>
-    <connection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/plugins/storable-configs-plugin</connection>
-    <developerConnection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/plugins/storable-configs-plugin</developerConnection>
+    <connection>scm:svn:https://svn.jenkins-ci.org/tags/storable-configs-plugin-1.0</connection>
+    <developerConnection>scm:svn:https://svn.jenkins-ci.org/tags/storable-configs-plugin-1.0</developerConnection>
+    <url>https://hudson.dev.java.net/source/browse/hudson/tags/storable-configs-plugin-1.0</url>
   </scm>
   
  	<dependencies>
